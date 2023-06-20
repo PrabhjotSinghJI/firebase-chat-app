@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'firebase_options.dart';
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
 
@@ -9,7 +9,18 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  final _form = GlobalKey<FormState>();
   var _islogin = true;
+  var  _enteredEmail = "";
+  var _enteredPassword = "";
+
+  void _submit(){
+   final isValid = _form.currentState!.validate();
+   if (isValid){
+     _form.currentState!.save();
+
+   }
+  }
 
 
   @override
@@ -36,6 +47,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Padding(
                     padding: EdgeInsets.all(16),
                     child: Form(
+                      key: _form,
                         child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -46,16 +58,41 @@ class _AuthScreenState extends State<AuthScreen> {
                           keyboardType: TextInputType.emailAddress,
                           autocorrect: false,
                           textCapitalization: TextCapitalization.none,
+                          validator: ( value ){
+                           if (value == null ||
+                               value.trim().isEmpty||
+                               !value.contains("e")){
+                             return " Please enter a valid email address.";
+                           }
+                          },
+                          onSaved: (value) {
+                            _enteredEmail = value!;
+                          },
                         ),
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: "Password"
                           ),
                          obscureText: true,
+                          validator: (value){
+                            if (value == null ||
+                               value.trim().length < 8 ) {
+                            return " password must be at lest 8 characters long ";
+                         }
+                            return null;
+                          },
+                          onSaved: (value) {
+                            _enteredPassword = value!;
+                          },
                         ),
-                         SizedBox(height: 12),
-                         ElevatedButton(onPressed: () {},
-                             child: Text("Signup"),
+                         const SizedBox(height: 12),
+                         ElevatedButton(onPressed: _submit,
+                           style: ElevatedButton.styleFrom(
+                             backgroundColor: Theme.of(context)
+                                 .colorScheme
+                                 .primaryContainer,
+                           ),
+                             child: Text(_islogin ? " Login " : " Signup "),
                         ),
                         TextButton(onPressed: (){
                           setState(() {
