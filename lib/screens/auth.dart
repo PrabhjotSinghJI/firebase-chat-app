@@ -1,6 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
+final _firebase = FirebaseAuth.instance;
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
 
@@ -14,15 +17,33 @@ class _AuthScreenState extends State<AuthScreen> {
   var  _enteredEmail = "";
   var _enteredPassword = "";
 
-  void _submit(){
+  void _submit() async {
    final isValid = _form.currentState!.validate();
    if (isValid){
-     _form.currentState!.save();
-
+     return;
    }
+     _form.currentState!.save();
+    if  ( _islogin){
+
+    }else{
+      try {
+        final userCredentials = await _firebase.createUserWithEmailAndPassword(
+            email: _enteredEmail, password: _enteredPassword);
+        if (kDebugMode) {
+          print(userCredentials);
+        }
+      }on FirebaseAuthException catch(error){
+        if(error.code == 'email-already-in-use' ){
+
+        }
+        ScaffoldMessenger.of(context).clearSnackBars();
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(error.message?? 'Authentication failed.'),
+            ),
+        );
+      }
+    }
   }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,10 +63,10 @@ class _AuthScreenState extends State<AuthScreen> {
                 child: Image.asset("images/logo.jpg"),
               ),
               Card(
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Form(
                       key: _form,
                         child: Column(
@@ -64,6 +85,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                !value.contains("e")){
                              return " Please enter a valid email address.";
                            }
+                           return null;
                           },
                           onSaved: (value) {
                             _enteredEmail = value!;
