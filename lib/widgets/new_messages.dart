@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class NewMessage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _NewMessageState extends State<NewMessage> {
     FocusScope.of(context).unfocus();
     _messageController.clear();
 
-    final user = FirebaseAutn.instanc.currentUse!;
+    final user = FirebaseAuth.instance.currentUser!;
 
    final userData = await FirebaseFirestore.instance
         .collection("user")
@@ -38,13 +39,10 @@ class _NewMessageState extends State<NewMessage> {
       'username': userData.data()!['username'],
       'userImage': '...',
     });
-
-
-
   }
 
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.only(left: 15,right: 1,bottom: 14),
+    return Padding(padding: const EdgeInsets.only(left: 15,right: 1,bottom: 14),
     child: Row(
       children: [
         Expanded(
@@ -53,12 +51,12 @@ class _NewMessageState extends State<NewMessage> {
             textCapitalization: TextCapitalization.sentences,
             autocorrect: true,
             enableSuggestions: true,
-            decoration: InputDecoration(labelText: 'Send a message...'),
+            decoration: const InputDecoration(labelText: 'Send a message...'),
 
         ),),
         IconButton(
           color: Theme.of(context).colorScheme.primary,
-        icon: Icon(
+        icon: const Icon(
           Icons.send,
         ),
           onPressed: _submitMessage,

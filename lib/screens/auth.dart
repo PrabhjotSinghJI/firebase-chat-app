@@ -170,9 +170,9 @@ class _AuthScreenState extends State<AuthScreen> {
                             _enteredPassword = value!;
                           },
                         ),
-                         const SizedBox(height: 12),
+                          const SizedBox(height: 12),
                          if (!_isAuthenticating)
-                           CircularProgressIndicator()
+                           const CircularProgressIndicator(),
                         if (!_isAuthenticating)
                          ElevatedButton(onPressed: _submit,
                            style: ElevatedButton.styleFrom(

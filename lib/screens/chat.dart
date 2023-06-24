@@ -2,11 +2,10 @@ import 'package:firebase/widgets/chat_messages.dart';
 import 'package:firebase/widgets/new_messages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({Key? key}) : super(key;: key);
+  const ChatScreen({Key? key}) : super(key: key);
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -17,7 +16,7 @@ class _ChatScreenState extends State<ChatScreen> {
     final fcm = FirebaseMessaging.instance;
    await fcm.requestPermission();
    final token = await fcm.getToken();
-   print(token);
+
   }
 
   @override
@@ -44,7 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ))
         ],
       ),
-      body: Column(
+      body: const Column(
         children: [
         Expanded(child: ChatMessages(),
         ),

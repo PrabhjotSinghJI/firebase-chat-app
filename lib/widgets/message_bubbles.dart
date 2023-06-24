@@ -11,6 +11,8 @@ class MessageBubble extends StatelessWidget {
     required this.isMe,
 }) : isFirstInSequence = true;
 
+  final bool isFirstInSequence;
+
   const MessageBubble.next({
     super.key,
     required this.message,
@@ -19,7 +21,8 @@ class MessageBubble extends StatelessWidget {
   userImage = null,
   username = null;
 
-  final bool isFirstInSequence;
+
+
   final String? username;
   final String message;
   final bool isMe;
@@ -40,7 +43,7 @@ class MessageBubble extends StatelessWidget {
             radius:23,
           ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 46),
+          margin: const EdgeInsets.symmetric(horizontal: 46),
           child: Row(
             mainAxisAlignment:
               isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
@@ -52,13 +55,13 @@ class MessageBubble extends StatelessWidget {
                   if(isFirstInSequence) SizedBox(height: 18),
                   if(username != null)
                     Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         left: 13,
                         right: 13,
                       ),
                       child: Text(
                         username!,
-                        style : TextStyle(
+                        style : const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black87,
                         )
@@ -72,16 +75,16 @@ class MessageBubble extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                         topLeft: !isMe && isFirstInSequence
                             ? Radius.zero
-                            : Radius.circular(12),
+                            : const Radius.circular(12),
                         topRight: !isMe && isFirstInSequence
                           ? Radius.zero
-                            : Radius.circular(12),
-                        bottomLeft: Radius.circular(12),
-                        bottomRight: Radius.circular(12),
+                            : const Radius.circular(12),
+                        bottomLeft: const Radius.circular(12),
+                        bottomRight: const Radius.circular(12),
                       ),
                     ),
-                    constraints: BoxConstraints(maxWidth: 200),
-                    padding: EdgeInsets.symmetric(
+                    constraints: const BoxConstraints(maxWidth: 200),
+                    padding: const EdgeInsets.symmetric(
                       vertical: 4,
                       horizontal: 12,
                     ),

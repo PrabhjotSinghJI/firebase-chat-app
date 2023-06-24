@@ -1,7 +1,5 @@
 import 'package:firebase/widgets/message_bubbles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -44,10 +42,10 @@ class ChatMessages extends StatelessWidget {
         ),
         reverse: true,
         itemCount: loadedMessages.length,
-        itemBuilder: (ctx, inder) {
+        itemBuilder: (ctx, index) {
           final chatMessage = loadedMessages[index].data();
-          final nextChatMessage = inder + 1 < loadedMessages.length
-              ? loadedMessages[inder].data()
+          final nextChatMessage = index + 1 < loadedMessages.length
+              ? loadedMessages[index].data()
               : null;
 
           final currentMessageUserId = chatMessage['userId'];
@@ -57,14 +55,14 @@ class ChatMessages extends StatelessWidget {
 
           if (nextUserIsSame){
             return MessageBubble.next(message: chatMessage['text'],
-                isMe: authenticatedUser.uid == currentMessageUserId,
+                isMe: authenticatedUser?.uid == currentMessageUserId,
             );
           }else{
             return MessageBubble.first(
                 userImage: chatMessage('userImage'),
                 username: chatMessage('username'),
                 message: chatMessage('text'),
-                isMe: authenticatedUser.uid == currentMessageUserId,
+                isMe: authenticatedUser?.uid == currentMessageUserId,
             );
           }
 

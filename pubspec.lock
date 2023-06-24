@@ -153,6 +153,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.2"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -161,6 +169,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  ffi:
+    dependency: transitive
+    description:
+      name: ffi
+      sha256: ed5337a5660c506388a9f012be0288fb38b49020ce2b45fe1f8b8323fe429f99
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   file:
     dependency: transitive
     description:
@@ -169,22 +185,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+  file_picker:
+    dependency: transitive
+    description:
+      name: file_picker
+      sha256: b1729fc96627dd44012d0a901558177418818d6bd428df59dcfeb594e5f66432
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.3.2"
   file_selector_linux:
     dependency: transitive
     description:
       name: file_selector_linux
-      sha256: d17c5e450192cdc40b718804dfb4eaf79a71bed60ee9530703900879ba50baa3
+      sha256: "770eb1ab057b5ae4326d1c24cc57710758b9a46026349d021d6311bd27580046"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.1+3"
+    version: "0.9.2"
   file_selector_macos:
     dependency: transitive
     description:
       name: file_selector_macos
-      sha256: "6290eec24fc4cc62535fe609e0c6714d3c1306191dc8c3b0319eaecc09423a3a"
+      sha256: "7a6f1ae6107265664f3f7f89a66074882c4d506aef1441c9af313c1f7e6f41ce"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.2"
+    version: "0.9.3"
   file_selector_platform_interface:
     dependency: transitive
     description:
@@ -197,10 +221,10 @@ packages:
     dependency: transitive
     description:
       name: file_selector_windows
-      sha256: ef246380b66d1fb9089fc65622c387bf3780bca79f533424c31d07f12c2c7fd8
+      sha256: "1372760c6b389842b77156203308940558a2817360154084368608413835fc26"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.2"
+    version: "0.9.3"
   firebase_auth:
     dependency: "direct main"
     description:
@@ -249,6 +273,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.0"
+  firebase_messaging:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging
+      sha256: "77d93f897c893fa7c8de433f6950123bd9c56f27fd7f88a032a53102ca23fcee"
+      url: "https://pub.dev"
+    source: hosted
+    version: "14.6.3"
+  firebase_messaging_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_messaging_platform_interface
+      sha256: e9e9dc48a3d8ffa67aaba3d6b1ebf74bc7d7d8c83d10b1458ff97878b9d8a2b0
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.5.3"
+  firebase_messaging_web:
+    dependency: transitive
+    description:
+      name: firebase_messaging_web
+      sha256: "381f217e41e0e407baf8df21787b97e46fabfacefd6a953425be3a6cdf2269f4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.5.3"
   firebase_storage:
     dependency: "direct main"
     description:
@@ -294,6 +342,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bugly:
+    dependency: "direct main"
+    description:
+      name: flutter_bugly
+      sha256: a2d13cb35bedb907cb020ea4862264dcc9044675a49a8313bb3ab2e61af79c77
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.4"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -315,6 +371,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.15"
+  flutter_reorderable_grid_view:
+    dependency: transitive
+    description:
+      name: flutter_reorderable_grid_view
+      sha256: d32931c43c48ab45c58eb8a76ac03ce0f5228684d7aa777ff4d70e61fff5dbd9
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -501,6 +565,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  multi_image_picker_view:
+    dependency: "direct main"
+    description:
+      name: multi_image_picker_view
+      sha256: "669710cca5ba98fb5b85dd8e122a6917da6965b55945c4fc340521eb96acf6da"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.15"
   oauth2:
     dependency: "direct main"
     description:
@@ -650,6 +722,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  win32:
+    dependency: transitive
+    description:
+      name: win32
+      sha256: "1414f27dd781737e51afa9711f2ac2ace6ab4498ee98e20863fa5505aa00c58c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.4"
   yaml:
     dependency: transitive
     description:
