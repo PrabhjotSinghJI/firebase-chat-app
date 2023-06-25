@@ -1,11 +1,15 @@
 
 
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'dart:html';
+// ignore: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase/widgets/user_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase/screens/auth.dart';
 
 
 final _firebase = FirebaseAuth.instance;
@@ -101,7 +105,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 child: Image.asset("images/logo.jpg"),
               ),
               Card(
-                margin: const EdgeInsets.all(20),
+                margin:  const EdgeInsets.all(20),
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(16),
