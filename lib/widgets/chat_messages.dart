@@ -34,6 +34,7 @@ class ChatMessages extends StatelessWidget {
         );
       }
 
+      var loadedMessages;
       return ListView.builder(
         padding: const EdgeInsets.only(
           bottom: 40,

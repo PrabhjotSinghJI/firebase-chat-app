@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
+
 class MessageBubble extends StatelessWidget {
+
+
   const MessageBubble.first({
     super.key,
     required this.userImage,
